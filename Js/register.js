@@ -4,7 +4,11 @@ document.getElementById("signUp").onclick = function(){
     var password = document.getElementById("password").value;
 
 
-    console.log(email + password)
+    firebase.auth().createUserWithEmailAndPassword(email,password).then((userCred)=>{
+
+        console.log("User created");
+        
+    })
 
 
 }
