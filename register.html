@@ -21,11 +21,11 @@
             <input type="text" class="form-control" placeholder="Enter your name">
 
             <label for="" class="form-label">Email Address</label>
-            <input type="email" class="form-control" placeholder="Enter your email">
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
 
             <label for="" class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Enter your Password">
-            <button class="btn btn-primary myBtn">Sign Up</button>
+            <input type="password" class="form-control" id="password" placeholder="Enter your Password">
+            <button class="btn btn-primary myBtn" id="signUp">Sign Up</button>
             <br>
             <a href="index.html">Already have an account? Sign in</a>
 
@@ -35,6 +35,11 @@
 
         </div>
     </section>
-    
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+
+    <script src="Js/register.js"></script>
 </body>
 </html>
