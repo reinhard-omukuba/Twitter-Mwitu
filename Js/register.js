@@ -1,13 +1,17 @@
+//sign up a user onclick
 document.getElementById("signUp").onclick = function(){
 
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
+    //get data from input
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
-
+    //run a firebase function to sign up the user
     firebase.auth().createUserWithEmailAndPassword(email,password).then((userCred)=>{
 
-        console.log("User created");
+        //if the sign up is successful redirect to home page
+        window.location.href = "home.html";
         
+
     })
 
 
