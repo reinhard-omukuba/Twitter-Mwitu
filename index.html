@@ -20,16 +20,23 @@
         <div class="rightSec">
 
             <label for="" class="form-label">Email Address</label>
-            <input type="email" class="form-control" placeholder="Enter your email">
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
 
             <label for="" class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Enter your Password">
-            <button class="btn btn-primary myBtn">Sign In</button>
+            <input id="password" type="password" class="form-control" placeholder="Enter your Password">
+            <button class="btn btn-primary myBtn" id="signIn">Sign In</button>
             <br>
             <a href="register.html">Dont have an account? Sign up</a>
 
         </div>
     </section>
     
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
+
+    <script src="Js/config.js"></script>
+    <script src="Js/login.js"></script>
 </body>
 </html>

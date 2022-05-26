@@ -1,4 +1,4 @@
-//sign up a user onclick
+//sign up a user onclick of the signup button
 document.getElementById("signUp").onclick = function(){
 
     //get data from input
@@ -10,9 +10,16 @@ document.getElementById("signUp").onclick = function(){
 
         //if the sign up is successful redirect to home page
         window.location.href = "home.html";
-        
+    
+    }).catch((error)=>{
+        //if user is not successfully signed up, we are going to catch the error message
+
+        //getting the exact error message
+        const mss = error.message;
+
+        //showing the error message on alert
+        alert(mss)
 
     })
-
 
 }
