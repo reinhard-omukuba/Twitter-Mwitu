@@ -17,8 +17,12 @@ document.getElementById("signIn").onclick = function(){
         //getting the exact error message
         const mss = error.message;
 
-        //showing the error message on alert
-        alert(mss)
+        //showing the error message on Bootsrap's toast
+        const toastLiveExample = document.getElementById('liveToast')
+        const toast = new bootstrap.Toast(toastLiveExample)
+
+        document.getElementById("toast-body").innerText = mss
+        toast.show()
 
     })
 
