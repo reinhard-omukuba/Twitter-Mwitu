@@ -9,6 +9,20 @@ firebase.auth().onAuthStateChanged((user)=>{
 
         //document.getElementById("test").innerText = userEmail
 
+        firebase.firestore().collection("users").doc(userId).get().then((doc)=>{
+
+            const username = doc.data().userName;
+
+            document.getElementById("test").innerText = username 
+            document.getElementById("theTitle").innerText = username 
+
+
+        })
+
+
+
+
+
     }else{
         window.location.href = "index.html"
     }
