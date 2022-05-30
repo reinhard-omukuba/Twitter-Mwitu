@@ -38,3 +38,118 @@
 .rightSec a{
     text-align: center;
 }
+
+/* home section */
+
+.homeSection{
+    display: flex;
+}
+
+
+.tweetSection{
+    width: 43%;
+    height: 100vh;
+   border-left: 1px rgba(128, 128, 128, 0.168) solid;
+   border-right: 1px rgba(128, 128, 128, 0.168) solid;
+}
+
+.homeLeft{
+    width: 24%;
+    height: 100vh;
+}
+
+.homeRight{
+    width: 33%;
+    height: 100vh;
+}
+
+.profilePlaceholder{
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.tweetBox{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.tweetBox input{
+    width: 90%;
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+
+.tweetButtons{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-bottom: 1px rgba(128, 128, 128, 0.168) solid;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+.tweetButtons button{
+    border-radius: 20px;
+    padding-left:20px;
+    padding-right: 20px;
+}
+
+.topTweetBox{
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+
+.homeLeft img{
+    height:40px;
+}
+
+.homeLeft{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.homeLeft button{
+    width: 100%;
+    border-radius: 50px;
+}
+
+
+.bottomProfileCont{
+    display: flex;
+}
+
+.bottomProfile p{
+    margin: 0;
+    padding: 0;
+}
+
+.bottomProfile{
+    margin-left: 10px;
+}
+
+
+.bottomProfileCont:hover{
+    background-color: rgba(128, 128, 128, 0.124);
+    border-radius: 30px;
+    cursor: pointer;
+    
+}
+
+#username{
+    font-weight: bold;
+}
+
+
+.homeBtns{
+    /*  */
+}
