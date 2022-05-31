@@ -1,0 +1,17 @@
+@media screen and (max-width: 768px){
+
+    .leftSec{
+        display: none;
+    }
+
+    .rightSec{
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .theLogo{
+        height: 70px;
+        display: block;
+    }
+}

@@ -110,7 +110,9 @@
 
 
 .homeLeft img{
-    height:40px;
+    height:30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .homeLeft{
@@ -126,6 +128,7 @@
 
 .bottomProfileCont{
     display: flex;
+    margin-top: 50px;
 }
 
 .bottomProfile p{
@@ -151,5 +154,81 @@
 
 
 .homeBtns{
-    /*  */
+   text-decoration: none;
+   color: black;
+   font-size: 20px;
+}
+
+
+.theLogo{
+    display: none;
+}
+
+.midMenu div{
+    margin-bottom: 12px;
+    margin-top: 12px;
+}
+
+
+.coverImage{
+    background-image: url(../Images/600x200.jfif);
+    background-size: cover;
+    height: 200px;
+    width: 100%;
+}
+
+
+.mainProfImage{
+    height: 150px;
+    width: 150px;
+    background-image: url(../Images/QYJI0a1O_400x400.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+
+    top: 180px;
+    left: 25px;
+    z-index: 11;
+
+    border: 5px white solid;
+}
+
+.edtBtn{
+    position: absolute;
+    right: 10px;
+
+    text-decoration: none;
+    border: gray 1px solid;
+    padding: 5px  20px 5px 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+    color: black;
+
+    cursor: pointer;
+}
+
+
+.profSection{
+    position: relative;
+}
+
+
+.profContent{
+    position: absolute;
+    top: 350px;
+    width: 90%;
+    margin-left: 5%;
+}
+
+
+#profUserNamed{
+    margin-top: 0;
+    padding-top: 0;
+}
+
+#profName{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-size: 23px;
+    font-weight: bolder;
 }
