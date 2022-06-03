@@ -50,17 +50,30 @@ firebase.auth().onAuthStateChanged((user)=>{
 
         //pull all tweets
         firebase.firestore().collection("tweets").get().then((querySnapshot)=>{
+            let content = '';
             querySnapshot.forEach((doc)=>{
 
                 const theTweet = doc.data().userTweet;
                 const theTime = doc.data().timeStamp;
 
+                //const theDate = theTime.getDate();
 
-                console.log(theTweet + " " + theTime)
+                content += '<div class="d-flex" style="border-bottom:1px solid gray; margin-top:20px; padding-left:30px; padding-right:30px;">';
 
+                    content += '<div class="profilePlaceholder"></div>';
+                    content += '<div style="margin-left:20px;">';
+                        content += '<div class="d-flex" >';
+                            content += '<h6 style="margin-bottom:0px;">My Name </h6>';
+                            content += '<p style="margin-bottom:0px; margin-left:10px;">'+theTime+'</p>';
+                        content += '</div>';
+                        content += '<p style="margin-top:0px;">'+theTweet+'</p>';
+                    content += '</div>';                
 
+                    //content += '<hr>';
+                content += '</div>';
 
             })
+            $("#allTweetsContainer").append(content);
         })
 
 
