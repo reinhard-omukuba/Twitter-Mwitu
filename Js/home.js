@@ -48,6 +48,22 @@ firebase.auth().onAuthStateChanged((user)=>{
         })
 
 
+        //pull all tweets
+        firebase.firestore().collection("tweets").get().then((querySnapshot)=>{
+            querySnapshot.forEach((doc)=>{
+
+                const theTweet = doc.data().userTweet;
+                const theTime = doc.data().timeStamp;
+
+
+                console.log(theTweet + " " + theTime)
+
+
+
+            })
+        })
+
+
 
 
 
