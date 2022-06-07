@@ -49,7 +49,7 @@ firebase.auth().onAuthStateChanged((user)=>{
 
 
         //pull all tweets
-        firebase.firestore().collection("tweets").get().then((querySnapshot)=>{
+        firebase.firestore().collection("tweets").orderBy("timeStamp", "desc").get().then((querySnapshot)=>{
             let content = '';
             querySnapshot.forEach((doc)=>{
 
@@ -57,6 +57,7 @@ firebase.auth().onAuthStateChanged((user)=>{
                 const theTime = doc.data().timeStamp;
 
                 //const theDate = theTime.getDate();
+                const theDate = theTime.toDate().toTimeString();
 
                 content += '<div class="d-flex" style="border-bottom:1px solid gray; margin-top:20px; padding-left:30px; padding-right:30px;">';
 
@@ -64,7 +65,7 @@ firebase.auth().onAuthStateChanged((user)=>{
                     content += '<div style="margin-left:20px;">';
                         content += '<div class="d-flex" >';
                             content += '<h6 style="margin-bottom:0px;">My Name </h6>';
-                            content += '<p style="margin-bottom:0px; margin-left:10px;">'+theTime+'</p>';
+                            content += '<p style="margin-bottom:0px; margin-left:10px;">'+theDate+'</p>';
                         content += '</div>';
                         content += '<p style="margin-top:0px;">'+theTweet+'</p>';
                     content += '</div>';                
