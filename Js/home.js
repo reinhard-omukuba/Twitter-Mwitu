@@ -48,34 +48,56 @@ firebase.auth().onAuthStateChanged((user)=>{
         })
 
 
-        //pull all tweets
-        firebase.firestore().collection("tweets").orderBy("timeStamp", "desc").get().then((querySnapshot)=>{
-            let content = '';
-            querySnapshot.forEach((doc)=>{
+        //pull all users from the database and compare the user id if it matches the tweet we are pulling
+        firebase.firestore().collection("users").get().then((usersSnapshot)=>{
 
-                const theTweet = doc.data().userTweet;
-                const theTime = doc.data().timeStamp;
+            usersSnapshot.forEach((theUser)=>{
+                let userId = theUser.data().userId;
+                let userName = theUser.data().userName;
 
-                //const theDate = theTime.getDate();
-                const theDate = theTime.toDate().toTimeString();
+                //pull all tweets
+                firebase.firestore().collection("tweets").orderBy("timeStamp", "desc").get().then((querySnapshot)=>{
+                    let content = '';
+                    querySnapshot.forEach((doc)=>{
 
-                content += '<div class="d-flex" style="border-bottom:1px solid gray; margin-top:20px; padding-left:30px; padding-right:30px;">';
+                        const theTweet = doc.data().userTweet;
+                        const theTime = doc.data().timeStamp;
+                        const theUserId = doc.data().userId;
 
-                    content += '<div class="profilePlaceholder"></div>';
-                    content += '<div style="margin-left:20px;">';
-                        content += '<div class="d-flex" >';
-                            content += '<h6 style="margin-bottom:0px;">My Name </h6>';
-                            content += '<p style="margin-bottom:0px; margin-left:10px;">'+theDate+'</p>';
+                        //const theDate = theTime.getDate();
+                        const theDate = theTime.toDate().toTimeString();
+
+                        //relating the two user ids
+                        if(theUserId == userId){
+                            content += '<div class="d-flex" style="border-bottom:1px solid gray; margin-top:20px; padding-left:30px; padding-right:30px;">';
+
+                            content += '<div class="profilePlaceholder"></div>';
+                            content += '<div style="margin-left:20px;">';
+                                content += '<div class="d-flex" >';
+                                    content += '<h6 style="margin-bottom:0px;">'+userName+'</h6>';
+                                    content += '<p style="margin-bottom:0px; margin-left:10px;">'+theDate+'</p>';
+                                content += '</div>';
+                                content += '<p style="margin-top:0px;">'+theTweet+'</p>';
+                            content += '</div>';                
+
                         content += '</div>';
-                        content += '<p style="margin-top:0px;">'+theTweet+'</p>';
-                    content += '</div>';                
+                        }
 
-                    //content += '<hr>';
-                content += '</div>';
+                        
+
+                    })
+                    $("#allTweetsContainer").append(content);
+                })
+
+
 
             })
-            $("#allTweetsContainer").append(content);
+
         })
+
+
+
+        
 
 
 
