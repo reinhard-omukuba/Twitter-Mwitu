@@ -54,6 +54,7 @@ firebase.auth().onAuthStateChanged((user)=>{
             usersSnapshot.forEach((theUser)=>{
                 let userId = theUser.data().userId;
                 let userName = theUser.data().userName;
+                let profileImge =  theUser.data().profileImge;
 
                 //pull all tweets
                 firebase.firestore().collection("tweets").orderBy("timeStamp", "desc").get().then((querySnapshot)=>{
@@ -66,6 +67,12 @@ firebase.auth().onAuthStateChanged((user)=>{
 
                         //const theDate = theTime.getDate();
                         const theDate = theTime.toDate().toTimeString();
+
+                        //CURRENT TIME
+                        const currentTime= new Date();
+                        const tweetDate = theTime.toDate();
+
+                        console.log(currentTime + "  " + tweetDate)
 
                         //relating the two user ids
                         if(theUserId == userId){

@@ -61,7 +61,7 @@
             <div class="coverImage">
 
             </div>
-            <div class="mainProfImage"></div>
+            <div class="mainProfImage" id="mainProfImage"></div>
 
             <a class="edtBtn" data-bs-toggle="modal" data-bs-target="#exampleModal">Edit Profile</a>
 
@@ -92,6 +92,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div>
+                        <input type="file" id="profileImage">
+                        <button class="btn btn-primary" id="upload">Upload</button>
+                    </div>
+                    <p style="margin-top: 10px; margin-bottom: 10px;" id="progress"></p>
+                    
                     <label for="">Edit Name</label>
                     <input id="edtName" type="text" class="form-control">
                     <label for="">Edit Bio</label>
@@ -113,6 +119,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.0/firebase-storage.js"></script>
 
     <script src="Js/config.js"></script>
     <script src="Js/profile.js"></script>

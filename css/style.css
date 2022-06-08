@@ -232,3 +232,8 @@
     font-size: 23px;
     font-weight: bolder;
 }
+
+#allTweetsContainer{
+    overflow-y: scroll;
+    height: 80vh;
+}
