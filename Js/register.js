@@ -22,7 +22,8 @@ document.getElementById("signUp").onclick = function(){
 
             userEmail:email,
             userName: username,
-            userId:theUserId
+            userId:theUserId,
+            profileImge: "https://firebasestorage.googleapis.com/v0/b/twitter-mwitu-1ff67.appspot.com/o/Profile%2Fdefaultprofile.jpg?alt=media&token=1684b844-e68c-4ea4-a439-d1ec46968f5e"
 
         }).then(()=>{
             //if the sign up is successful redirect to home page

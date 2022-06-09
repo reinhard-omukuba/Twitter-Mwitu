@@ -181,11 +181,11 @@
 .mainProfImage{
     height: 150px;
     width: 150px;
-    background-image: url(../Images/QYJI0a1O_400x400.jpg);
+    background-image: url(../Images/defaultprofile.jpg);
     background-size: cover;
     border-radius: 50%;
     position: absolute;
-
+    background-position: center;
     top: 180px;
     left: 25px;
     z-index: 11;
@@ -236,4 +236,24 @@
 #allTweetsContainer{
     overflow-y: scroll;
     height: 80vh;
+}
+
+
+.profilePlaceholderHome{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profilePlaceholderHome img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.moreImage{
+    height: 30px;
+    cursor: pointer;
 }
