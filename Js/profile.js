@@ -67,6 +67,9 @@ firebase.auth().onAuthStateChanged((user)=>{
                 //showing the progress on html
                 document.getElementById("progress").innerText = wholeNumber + "%. Uploading"; 
 
+                //progressbar
+                document.getElementById("progressBar").style.width =  wholeNumber +"%";
+
 
             },(error) =>{
 
