@@ -73,29 +73,48 @@ firebase.auth().onAuthStateChanged((user)=>{
                         const currentTime= new Date();
                         const tweetDate = theTime.toDate();
 
-                       // console.log(currentTime + "  " + tweetDate)
+                       // console.log(currentTime + "  " + tweetDate)                     
 
                         //relating the two user ids
                         if(theUserId == userId){
-                            content += '<div class="d-flex" style="border-bottom:1px solid gray; margin-top:20px; padding-left:30px; padding-right:30px;">';
 
-                            content += '<div class="profilePlaceholderHome"> <img src="'+profileImge+'"></div>';
-                            content += '<div style="margin-left:20px;">';
-                                content += '<div class="d-flex" style="justify-content: space-between; width: 100%;">';
-                                    content += '<div class="d-flex">';
-                                        content += '<h6 style="margin-bottom:0px;">'+userName+'</h6>';
-                                        content += '<p style="margin-bottom:0px; margin-left:10px;">'+theDate+'</p>';
-                                    content += '</div>';
-                                    content += '<img src="../Images/more.svg" class="moreImage" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="viewTweet(\''+docId+'\')">';
+                            //counting the likes
+                            firebase.firestore().collection("tweetLikes").where("tweetId", "==", docId).get().then((tweetLikeSnapshot)=>{      
+                                tweetLikeSnapshot.forEach((theLike)=>{
+
+                                    let count = tweetLikeSnapshot.size;
+
+                                    console.log(count)                
+
+                                })
+                            })
+
+                                content += '<div class="d-flex" style="border-bottom:1px solid rgba(128, 128, 128, 0.168); margin-top:20px; padding-left:30px; padding-right:30px;">';
+                                    content += '<div class="profilePlaceholderHome"> <img src="'+profileImge+'"></div>';
+                                    content += '<div style="margin-left:20px;">';
+                                        content += '<div class="d-flex" style="justify-content: space-between; width: 100%;">';
+                                            content += '<div class="d-flex">';
+                                                content += '<h6 style="margin-bottom:0px;">'+userName+'</h6>';
+                                                content += '<p style="margin-bottom:0px; margin-left:10px;">'+theDate+'</p>';
+                                            content += '</div>';
+                                            content += '<img src="../Images/more.svg" class="moreImage" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="viewTweet(\''+docId+'\')">';
+                                        content += '</div>';
+                                        content += '<p style="margin-top:0px;">'+theTweet+'</p>';
+                                        content += '<div class="d-flex" style="justify-content:space-between;margin-bottom: 20px;">';
+                                            content += '<img src="../Images/reply.svg" class="likeIcon">'
+                                            content += '<img src="../Images/retweet.svg" class="likeIcon">'
+                                            content += '<div class="d-flex">';
+                                                content += '<p>0</p>';
+                                                content += '<img src="../Images/like.svg" onclick="likeTweet(\'' + docId + '\')" class="likeIcon">'
+                                            content += '</div>';
+                                            content += '<img src="../Images/share.svg" class="likeIcon">'
+                                        content +='</div>'
+                                    content += '</div>';                
                                 content += '</div>';
-                                content += '<p style="margin-top:0px;">'+theTweet+'</p>';
-                            content += '</div>';                
 
-                        content += '</div>';
-                        }
-
+                            
                         
-
+                        }
                     })
                     $("#allTweetsContainer").append(content);
                 })
@@ -118,6 +137,22 @@ firebase.auth().onAuthStateChanged((user)=>{
 
                 }
                 //
+
+
+                //liking a tweet
+                window.likeTweet = function(value){
+
+                    let tweetLike = firebase.firestore().collection("tweetLikes").doc();
+                    tweetLike.set({
+
+                        tweetId:value,
+                        userId: userId,
+                        timeStamp:timeStamp,
+                        docId:tweetLike.id
+
+                    })
+                }
+
 
 
 
